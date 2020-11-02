@@ -1,0 +1,117 @@
+/* Start Global Styles */
+.italiana {
+  font-family: 'Italiana';
+}
+
+/*
+ * Base structure
+ */
+ .htmlheight {
+    height: 100%;
+  }
+  
+  body {  
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    
+  }
+  
+  .cover-container {
+    max-width: 50em;
+  }
+  
+  
+  /* Media query image resize */
+
+.logo {
+    display: none;
+ }
+ .logo-100px {
+    display: none;
+ }
+ 
+ @media only screen and (max-width: 770px){ 
+    .logo-lg {
+      display: none;
+    }
+ 
+    .logo {
+      display: inline;
+    }
+ }
+
+ @media only screen and (max-width: 600px){ 
+    .logo-lg {
+      display: none;
+    }
+    .logo {
+        display: none;
+      }
+      .logo-form {
+        display: none;
+      }
+ 
+    .logo-100px {
+      display: inline;
+    }
+ }
+
+ @media only screen and (max-width: 500px){ 
+    .logo-lg {
+      display: none;
+    }
+    .logo {
+        display: none;
+      }
+ 
+    .logo-form {
+      display: none;
+    }
+    .logo-sm {
+      display: none;
+    }
+    .logo-form-master {
+      display: none;
+    }
+
+
+ }
+ /* End Global Styles */
+  
+
+  
+  /* Styles for recipes pages */
+  
+  /* Hover captions for recipe images */
+  .container {
+    position: relative;
+    width: 50%;
+  }
+  
+  .image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  

@@ -1,0 +1,13 @@
+<header class="masthead mb-auto">
+    <div class="inner">
+        <a id="mastheadLink" class="masthead-brand"><img src="../assets/logo-sm.png" alt="logo small"
+            routerLink="/home"></a>
+        <nav id="navLinks" class="nav nav-masthead justify-content-center">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+            <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+            <a *ngIf="isLoggedIn()" class="nav-link" routerLink="/recipes" routerLinkActive="active">Recipes</a>
+            <a *ngIf="isLoggedIn()" class="nav-link" (click)="logOut()">Log out</a>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,64 @@
+<div class="shadow p-2 mt-4 mb-3 bg-white rounded">
+    <h2 class="text-center mt-3 mr-n2">{{selectedRecipe.name}}</h2>
+    <p class="text-center">Instructions</p>
+    <div class="container"><img src="../assets/recipes/{{selectedRecipe.image}}" alt="Bresaola"
+            class="image shadow p-1 mt-4 mb-3 bg-white rounded" style="width:100%">
+        <div class="middle">
+            <p class="btn btn-dark active">{{selectedRecipe.name}}</p>
+        </div>
+    </div>
+    <h3 class="text-center">Ingredients</h3>
+    <p class="lead font-weight-light">Adjust curing ingredient weights based on ratio to meat</p>
+    <table class="table table-sm table-hover shadow bg-white rounded">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Name</th>
+                <th scope="col">Weight (g)</th>
+                <th scope="col">Ratio (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Meat</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr *ngFor="let meat of selectedRecipe.ingredients.meat">
+                <th scope="row"></th>
+                <td>{{meat.name}}</td>
+                <td>{{meat.weight}}</td>
+                <td>{{meat.ratio}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Curing Ingredients</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr *ngFor="let curing of selectedRecipe.ingredients.curingIngredients">
+                <th scope="row"></th>
+                <td>{{curing.name}}</td>
+                <td>{{curing.weight}}</td>
+                <td>{{curing.ratio}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Aromatics</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr *ngFor="let aromatics of selectedRecipe.ingredients.aromatics">
+                <th scope="row"></th>
+                <td>{{aromatics.name}}</td>
+                <td>{{aromatics.weight}}</td>
+                <td>{{aromatics.ratio}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 class="text-center">Steps</h3>
+    <ul class="list-group text-left blockquote">
+        <li class="list-group-item" *ngFor="let step of selectedRecipe.steps">{{step}}</li>
+    </ul>
+</div>

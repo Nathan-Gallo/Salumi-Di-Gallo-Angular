@@ -1,0 +1,52 @@
+<!-- Main content will be dynamically created via JavaScript as a single page app -->
+<main class="inner cover">
+    <form class="form-signin" method="post" (ngSubmit)="onSubmit()">
+        <div class="text-center mb-4"><a class="logo-form-master"><img class="mb-4 logo-form logo-link"
+                    src="../assets/logo.png" alt="logo-link-to-home"><img class="logo-100px logo-link"
+                    src="../assets/logo-100px.png" alt="logo-100px-link-to-home"></a></div>
+
+        <div class="form-label-group">
+            <input type="text" id="createUsername" class="form-control" name="username" placeholder="Create a Username"
+                required="required" autofocus="autofocus" [(ngModel)]="userName">
+            <label for="createUsername">Create a Username</label>
+        </div>
+
+        <div class="form-label-group"><input type="password" id="createPassword" name="password" class="form-control"
+                placeholder="Password" required="required" [(ngModel)]="password">
+            <label for="createPassword">Password</label>
+        </div>
+
+        <div class="form-label-group"><input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                placeholder="Confirm Password" required="required" [(ngModel)]="passwordConfirm">
+            <label for="confirmPassword">Confirm Password</label>
+        </div>
+
+        <div>
+            <button class="btn btn-dark btn-block" type="submit">Register</button>
+            <button class="btn btn-dark btn-block" (click)="onReset()" type="reset">Cancel</button>
+        </div>
+    </form>
+    <div *ngIf="registerError">
+        <br />
+        <div class="alert alert-danger">
+            <strong>Error!</strong> {{errMsg}}
+        </div>
+    </div>
+
+
+    <custom-modal class="modal" tabindex="-1" id="successModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Registered!</h5><button (click)="closeModal('successModal')" type="button" class="close" datadismiss="modal"
+                        arialabel="Close"><span ariahidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Succesfully registered, please log in</p>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-info" datadismiss="modal"
+                        arialabel="Close" (click)="closeModal('successModal')">Sign in</button></div>
+            </div>
+        </div>
+    </custom-modal>
+</main>

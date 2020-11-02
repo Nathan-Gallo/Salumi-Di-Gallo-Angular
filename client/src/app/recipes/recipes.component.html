@@ -1,0 +1,61 @@
+<main class="inner cover" id="mainContent">
+    <div *ngIf="viewAll" class="container" id="searchContainer">
+        <select [(ngModel)]="selectedRecipeId" class="custom-select shadow bg-white rounded mb-2"
+            (change)="recipeSelected()">
+            <option value="-1" selected>Select a Recipe</option>
+            <option *ngFor="let recipe of allRecipes" value="{{recipe.id}}">{{recipe.name}}</option>
+        </select>
+    </div>
+
+    <div *ngIf="viewCategories" class="container">
+        <select class="custom-select shadow bg-white rounded mb-2" [(ngModel)]="selectedRecipeCategory" (change)="categorySelected()">
+            <option value="-1" selected>Select a Category</option>
+            <option *ngFor="let category of allCategories" value="{{category.category}}">{{category.category}}</option>
+        </select>
+    </div>
+    <div *ngIf="viewCategoryRecipes" class="container">
+        <select [(ngModel)]="selectedRecipeId" class="custom-select shadow bg-white rounded mb-2"
+            (change)="recipeSelected()">
+            <option value="-1" selected>Select a Recipe</option>
+            <option *ngFor="let recipe of selectedCategory" value="{{recipe.id}}">{{recipe.name}}</option>
+        </select>
+    </div>
+
+    <div *ngIf="viewDifficulty" class="container">
+        <select class="custom-select shadow bg-white rounded mb-2" [(ngModel)]="selectedRecipeDifficulty" (change)="difficultySelected()"> 
+            <option value="-1" selected>Select a Difficulty</option>
+            <option *ngFor="let difficulty of allDifficulties" value="{{difficulty.difficulty}}">{{difficulty.difficulty}}</option>
+        </select>
+    </div>
+    <div *ngIf="viewDifficultyRecipes" class="container">
+        <select [(ngModel)]="selectedRecipeId" class="custom-select shadow bg-white rounded mb-2"
+            (change)="recipeSelected()">
+            <option value="-1" selected>Select a Recipe</option>
+            <option *ngFor="let recipe of selectedDifficulty" value="{{recipe.id}}">{{recipe.name}}</option>
+        </select>
+    </div>
+
+    <div id="radioDiv">
+        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="searchBy"
+                id="viewAll" value="all" checked="checked" [(ngModel)]="radioFilter" (change)="onRadioSelect()">
+            <label class="form-check-label" for="viewAll">View
+                All</label>
+        </div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="searchBy"
+                id="byCategory" value="category" [(ngModel)]="radioFilter" (change)="onRadioSelect()">
+            <label class="form-check-label" for="byCategory">View by
+                Category</label>
+        </div>
+        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="searchBy"
+                id="byDifficulty" value="difficulty" [(ngModel)]="radioFilter" (change)="onRadioSelect()">
+            <label class="form-check-label" for="byDifficulty">View by
+                Difficulty</label>
+        </div>
+    </div>
+
+    <!-- Display selected recipe section-->
+    <app-recipe-content *ngIf="showRecipe" [selectedRecipe]="selectedRecipe"></app-recipe-content>
+    
+
+    
+</main>
